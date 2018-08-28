@@ -1,0 +1,8 @@
+*.pyc
+__pycache__/
+
+instance/
+
+.vscode/
+
+Pipfile.lock
