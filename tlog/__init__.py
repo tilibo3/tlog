@@ -23,7 +23,12 @@ def create_app(test_config=None):
 
     @app.route('/')
     @app.route('/index')
-    def hello():
+    def index():
         return 'Hello, world'
     
+    from . import db, auth
+
+    db.init_app(app)
+    app.register_blueprint(auth.bp)
+
     return app
