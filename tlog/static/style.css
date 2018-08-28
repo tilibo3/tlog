@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+#my-canvas {
+  max-width: 810px;
+  margin: 0 auto;
+  padding: 20px 75px;
+}
+.hz-logo {
+  height: 220px;
+}
+.hz-header {
+  position: relative;
+  padding: 20px;
+  text-align: center;
+}
+.top-nav:after {
+  display: block;
+  content: ' ';
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+.top-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  zoom: 1;
+}
+.top-nav > a {
+  margin-left: 35px;
+  letter-spacing:  1px;
+  text-decoration: none;
+  color: #999;
+}
+.top-nav > a:hover {
+  color: #111;
+  cursor: pointer;
+}
+
+.hz-nav ul li {
+  display: inline-block;
+  position: relative;
+  margin-right: 55px;
+}
+.hz-nav ul li > a{
+  font-family: futura-pt;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.6em;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color:#999;
+}
+.hz-nav ul li > a:hover {
+  color: #111;
+  cursor: pointer;
+}
+.page-divider {
+  margin-bottom: 10px;
+  border-bottom: 1px #999 solid;
+}
+.hz-footer {
+  text-align: center;
+  padding-top: 25px;
+  font-family: europa;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.6em;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #999;
+}
+.hz-footer em {
+  font-weight: 600;
+}
+

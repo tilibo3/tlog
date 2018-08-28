@@ -1,19 +1,24 @@
-{% extends 'base.html' %}
+{% extends 'layout.html' %}
 
-{% block header %}
-<h1>Log In</h1>
-{% endblock %}
-
-{% block view %}
-<form method="post">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input name="username" class="" id="username" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="" name="password" id="password" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Login</button>
-    </form>
+{% block script %}
+<script type="text/jsx">
+    class Login extends React.Component {
+        render(){
+            return (
+                <form method="post">
+                    <div>
+                        <label for="username">Username</label>
+                        <input name="username" class="" id="username" required />
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" class="" name="password" id="password" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            );
+        }
+    }
+    ReactDOM.render(<Login />, document.getElementById('extendpart'));
+</script>
 {% endblock %}

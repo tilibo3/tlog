@@ -19,6 +19,26 @@ def index():
     return render_template('blog/index.html', posts=posts)
 
 
+@bp.route('/development')
+def development():
+    return render_template('blog/development.html')
+
+
+@bp.route('/journeys')
+def journeys():
+    return render_template('blog/journeys.html')
+
+
+@bp.route('/photography')
+def photography():
+    return render_template('blog/photography.html')
+
+
+@bp.route('/music')
+def music():
+    return render_template('blog/music.html')
+
+
 @bp.route('/create', methods=('GET', 'POST'))
 @login_required
 def create():

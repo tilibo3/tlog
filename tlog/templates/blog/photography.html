@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block script %}
+<script type="text/jsx">
+    class Photography extends React.Component {
+        render(){
+            return (
+                <p>Photography</p>
+            );
+        }
+    }
+    ReactDOM.render(<Photography />, document.getElementById('extendpart'));
+</script>
+{% endblock %}

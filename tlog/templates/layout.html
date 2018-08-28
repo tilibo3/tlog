@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8">
+    <title>H&Z</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <!-- styles -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    
+    <script type="text/jsx">
+      var App = React.createClass({
+        render: function() {
+          return (
+            <div id="my-canvas">
+              <header className="hz-header">
+                <img src="{{ url_for('static', filename='logo.jpg') }}" className="hz-logo" alt="logo" />
+                <nav className="hz-nav">
+                  <ul>    
+                    <li>
+                      <a href="{{ url_for('index') }}">H&Z</a>
+                    </li>
+                    {% if g.user %}
+                    <li>
+                      <a href="{{ url_for('blog.development') }}">DEVELOPMENT</a>
+                    </li>
+                    <li>
+                      <a href="{{ url_for('blog.journeys') }}">JOURNEYS</a>
+                    </li>
+                    <li>
+                      <a href="{{ url_for('blog.photography') }}">PHOTOGRAPHY</a>
+                    </li>
+                    <li>
+                      <a href="{{ url_for('blog.music') }}">MUSIC</a>
+                    </li>
+                    <li>
+                      <a href="{{ url_for('auth.logout') }}">LOGOUT</a>
+                    </li>
+                    {% else %}
+                    <li>
+                      <a href="{{ url_for('auth.register') }}">REGISTER</a>
+                    </li>
+                    <li>
+                      <a href="{{ url_for('auth.login') }}">LOGIN</a>
+                    </li>
+                    {% endif %}
+                  </ul>
+                </nav>
+              </header>
+
+              <div className="page-divider"></div>
+              <section className="main-content">
+                  {% if g.user %}
+                      <a href="{{ url_for('blog.create') }}">New</a>
+                  {% endif %}
+                  <div id="extendpart"></div>
+              </section>     
+              <div className="page-divider"></div>
+              <footer className="hz-footer">
+              </footer>
+            </div>
+          );
+        }
+      });
+
+      ReactDOM.render(<App />, document.getElementById('root'));
+
+    </script>
+    {% block script %}{% endblock %}
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block script %}
+<script type="text/jsx">
+    class Music extends React.Component {
+        render(){
+            return (
+                <p>Music</p>
+            );
+        }
+    }
+    ReactDOM.render(<Music />, document.getElementById('extendpart'));
+</script>
+{% endblock %}

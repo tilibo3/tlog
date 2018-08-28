@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask
+from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 
 
@@ -22,11 +22,6 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
-
-    # @app.route('/')
-    # @app.route('/index')
-    # def index():
-    #     return 'Hello, world'
     
     from . import db, auth, blog
 
