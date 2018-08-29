@@ -110,15 +110,13 @@
 
               <div className="page-divider"></div>
               <section className="main-content">
-                  <div id="extendpart"></div>
-                       
-                  <div className="page-divider"></div>
-                  {% with paths = ["/", "/development", "/journeys", "/music", "/photography"] %}
+                  <div id="extendpart"></div>      
+              </section>
+              {% with paths = ["/", "/development", "/journeys", "/music", "/photography"] %}
                     {% if request.path in paths and g.user %}
                       <Postpart />
                     {% endif %}
                   {% endwith %}
-              </section>
               <footer className="hz-footer">
               </footer>
             </div>
