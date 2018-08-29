@@ -5,25 +5,27 @@
     class Home extends React.Component {
         render(){
             return (
-                <div>
-                    {% for post in posts %}
-                        <article class="post">
-                            <header>
-                                <div>
-                                    <h1>{{ post['title'] }}</h1>
-                                    <div class="about">
-                                        genre: {{ post['category'] }}, by {{ post['username'] }} on {{ post['created'].strftime('%Y-%m-%d') }}
-                                    </div>    
-                                </div>
-                                {% if g.user['id'] == post['author_id'] %}
-                                    <a class="btn btn-primary" href="{{ url_for('blog.update', id=post['id']) }}">Edit</a>
-                                {% endif %}
-                            </header>
-                            <p class="body">{{ post['body'] }}</p>
-                        </article>
-                        {% if not loop.last %}
-                            <hr/>
-                        {% endif %}
+                <div className="home">
+                {% for post in posts %}
+                    <article className="article-item">
+                        <header>
+                            <div className="article-title">
+                                <h1>{{ post['title'] }}</h1>
+                                <div className="about">
+                                    genre: <i>{{ post['category'] }}</i>, by <i>{{ post['username'] }}</i> on <i>{{ post['created'].strftime('%Y-%m-%d') }}</i>
+                                </div>    
+                            </div>
+                            {% if g.user['id'] == post['author_id'] %}
+                            <div className="article-action">
+                                <a className="btn" href="#">EDIT</a>
+                                <a className="btn" href="#">DELETE</a>
+                            </div>
+                            {% endif %}
+                        </header>
+                        <div className="article-body">
+                            A RESTful API includes FOUR level concepts.A RESTful API includes FOUR level concepts.A RESTful API includes FOUR level concepts.A RESTful API includes FOUR level concepts.
+                        </div>
+                    </article>
                     {% endfor %}
                 </div>
             );
