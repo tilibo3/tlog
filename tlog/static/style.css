@@ -97,7 +97,7 @@ input[type="submit"]:hover {
 .hz-nav ul li {
   display: inline-block;
   position: relative;
-  margin-right: 55px;
+  margin-right: 40px;
 }
 .hz-nav ul li > a{
   font-family: futura-pt;
