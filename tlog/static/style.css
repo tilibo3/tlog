@@ -1,8 +1,3 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
 #my-canvas {
   max-width: 810px;
   margin: 0 auto;
@@ -16,21 +11,12 @@ body {
   padding: 20px;
   text-align: center;
 }
-.top-nav:after {
-  display: block;
-  content: ' ';
-  height: 0;
-  visibility: hidden;
-  clear: both;
-}
 .top-nav {
   position: absolute;
   top: 0;
   right: 0;
-  zoom: 1;
 }
 .top-nav > a {
-  margin-left: 35px;
   letter-spacing:  1px;
   text-decoration: none;
   color: #999;
@@ -39,7 +25,75 @@ body {
   color: #111;
   cursor: pointer;
 }
-
+.post-part {
+  text-align: center;
+}
+.post-form {
+  height: 200px;
+  font-size: 14px;
+}
+.form-top {
+  display: flex;
+  margin-bottom: 30px;
+  padding: 0 24px;
+}
+.form-top > input {
+  flex: 4;
+  padding: 4px 8px;
+  vertical-align: middle;
+  outline: none;
+}
+.form-top > select {
+  flex: 1;
+  margin: 4px 28px 4px 0;
+  outline: none;
+}
+.form-left {
+  vertical-align: middle;
+  width: 33%;
+  height: 96%;
+  margin-right: 35px;
+  resize: none;
+  outline: none;
+  padding: 4px 8px;
+}
+.form-right {
+  display: inline-block;
+  vertical-align: middle;
+  border: 2px solid #ddd;
+  width: 55%;
+  height: 100%;
+}
+button, input[type="button"], input[type="submit"] {
+  outline: none;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: .5em 1.3em;
+  margin: 35px auto;
+  background-image: linear-gradient(#ddd, #bbb);
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: .3em;
+  box-shadow: 0 1px white inset;
+  text-align: center;
+  text-shadow: 0 1px 1px black;
+  color: white;
+  font-weight: bold;
+}
+input[type="submit"] {
+  border-color: #3a778e;
+  background-image: linear-gradient(#45c6ef, #3a778e);
+}
+button:hover {
+  cursor: pointer;
+  box-shadow: .05em .1em .2em rgba(0,0,0,.6) inset;
+  border-color: rgba(0,0,0,.3);
+  background: #bbb;
+}
+input[type="submit"]:hover {
+  cursor: pointer; 
+  box-shadow: .05em .1em .2em rgba(0,0,0,.6) inset;
+  background: #3a778e;
+}
 .hz-nav ul li {
   display: inline-block;
   position: relative;
@@ -60,7 +114,7 @@ body {
   cursor: pointer;
 }
 .page-divider {
-  margin-bottom: 10px;
+  margin: 10px 0;
   border-bottom: 1px #999 solid;
 }
 .hz-footer {

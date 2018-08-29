@@ -15,6 +15,60 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
     
     <script type="text/jsx">
+      class Postform extends React.Component {
+        render(){
+          let visibility = this.props.visibility;
+          return (
+                <form method="post" name="post-form" className="post-form" style={% raw %}{{display: visibility}}{% endraw %}>
+                  <div className="form-top">
+                    <select name="category">
+                      {% if request.path == "/" %}
+                        <option value="development">development</option>
+                        <option value="journeys">journeys</option>
+                        <option value="photography">photography</option>
+                        <option value="music">music</option>
+                      {% else %}
+                        <option value="{{ request.path[1:] }}">{{ request.path[1:] }}</option>
+                      {% endif %}
+                    </select>
+                    <input type="text" name="title" id="title" placeholder="Enter a Title" required />
+                  </div>
+                  <textarea className="form-left" name="body" id="body"></textarea>     
+                  <div className="form-right" id="markdown-part"></div>
+                  <input type="submit" value="Post" />
+              </form>
+          );
+        }
+      }
+      
+      class Postpart extends React.Component {
+
+        constructor(props){
+          super(props);
+          this.state = {
+            hasClicked: false
+          };
+          this.showForm = this.showForm.bind(this);
+        }
+      
+        showForm(){
+          this.setState( prevState => ({
+            hasClicked : !prevState.hasClicked
+          }));
+        }
+      
+        render(){
+          let visibility = this.state.hasClicked ? "block" : "none";
+          return (
+                <div className="post-part">
+                  <button onClick={this.showForm}>
+                    { this.state.hasClicked ? "Cancel the Post" : "Add a New Post" }
+                  </button>
+                  <Postform visibility={visibility} />
+              </div>
+          );
+        }
+      }
       var App = React.createClass({
         render: function() {
           return (
@@ -56,12 +110,15 @@
 
               <div className="page-divider"></div>
               <section className="main-content">
-                  {% if g.user %}
-                      <a href="{{ url_for('blog.create') }}">New</a>
-                  {% endif %}
                   <div id="extendpart"></div>
-              </section>     
-              <div className="page-divider"></div>
+                       
+                  <div className="page-divider"></div>
+                  {% with paths = ["/", "/development", "/journeys", "/music", "/photography"] %}
+                    {% if request.path in paths and g.user %}
+                      <Postpart />
+                    {% endif %}
+                  {% endwith %}
+              </section>
               <footer className="hz-footer">
               </footer>
             </div>
